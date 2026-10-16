@@ -1,0 +1,7 @@
+<fonts>
+    <font id="FaceMetric" filename="face_metric.fnt" antialias="false" />
+    <font id="FaceSteps" filename="face_steps.fnt" antialias="false" />
+    <font id="FaceSeconds" filename="face_seconds.fnt" antialias="false" />
+    <font id="FaceDate" filename="face_date.fnt" antialias="false" />
+    <font id="FaceMonth" filename="face_month.fnt" antialias="false" />
+</fonts>

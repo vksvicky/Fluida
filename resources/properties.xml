@@ -1,0 +1,14 @@
+<properties>
+    <property id="HoursFluidColor" type="number">0x2391FF</property>
+    <property id="MinutesFluidColor" type="number">0x1EF0E1</property>
+    <property id="SecondsFluidColor" type="number">0x00EBFF</property>
+    <property id="CustomHexHours" type="string"></property>
+    <property id="CustomHexMinutes" type="string"></property>
+    <property id="CustomHexSeconds" type="string"></property>
+    <property id="LinkColors" type="boolean">false</property>
+    <property id="CuratedPalette" type="number">0</property>
+    <property id="TempUnit" type="number">-1</property>
+    <property id="BatteryMode" type="number">0</property>
+    <property id="TiltSensitivity" type="number">2</property>
+    <property id="EnableSiphonAnimation" type="boolean">true</property>
+</properties>

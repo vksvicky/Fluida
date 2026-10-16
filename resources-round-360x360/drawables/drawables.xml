@@ -1,0 +1,10 @@
+<drawables>
+    <bitmap id="dial_bg" filename="dial_bg.png" dithering="none" />
+    <bitmap id="fluid_hour" filename="fluid_hour.png" dithering="none" />
+    <bitmap id="fluid_minute" filename="fluid_minute.png" dithering="none" />
+    <bitmap id="icon_heart" filename="icon_heart.png" dithering="none" />
+    <bitmap id="icon_battery" filename="icon_battery.png" dithering="none" />
+    <bitmap id="icon_flame" filename="icon_flame.png" dithering="none" />
+    <bitmap id="icon_temp" filename="icon_temp.png" dithering="none" />
+    <bitmap id="icon_steps" filename="icon_steps.png" dithering="none" />
+</drawables>

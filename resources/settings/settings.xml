@@ -1,0 +1,81 @@
+<settings>
+    <setting propertyKey="@Properties.CuratedPalette" title="@Strings.CuratedPaletteTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.PaletteOceanic</listEntry>
+            <listEntry value="1">@Strings.PaletteEmber</listEntry>
+            <listEntry value="2">@Strings.PaletteNeon</listEntry>
+            <listEntry value="3">@Strings.PaletteIce</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.LinkColors" title="@Strings.LinkColorsTitle">
+        <settingConfig type="boolean" />
+    </setting>
+
+    <setting propertyKey="@Properties.HoursFluidColor" title="@Strings.HoursFluidColorTitle">
+        <settingConfig type="list">
+            <listEntry value="0x0055E6">@Strings.ColorSapphire</listEntry>
+            <listEntry value="0xE6194B">@Strings.ColorRuby</listEntry>
+            <listEntry value="0x9B59B6">@Strings.ColorAmethyst</listEntry>
+            <listEntry value="0x1A5276">@Strings.ColorNavy</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.MinutesFluidColor" title="@Strings.MinutesFluidColorTitle">
+        <settingConfig type="list">
+            <listEntry value="0x00E6B8">@Strings.ColorEmerald</listEntry>
+            <listEntry value="0xF5B041">@Strings.ColorAmber</listEntry>
+            <listEntry value="0x00FF7F">@Strings.ColorLime</listEntry>
+            <listEntry value="0xE0F7FA">@Strings.ColorIce</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.SecondsFluidColor" title="@Strings.SecondsFluidColorTitle">
+        <settingConfig type="list">
+            <listEntry value="0x00E6B8">@Strings.ColorEmerald</listEntry>
+            <listEntry value="0xF5B041">@Strings.ColorAmber</listEntry>
+            <listEntry value="0x00FF7F">@Strings.ColorLime</listEntry>
+            <listEntry value="0xE0F7FA">@Strings.ColorIce</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.CustomHexHours" title="@Strings.CustomHexHoursTitle">
+        <settingConfig type="alphaNumeric" maxLength="7" />
+    </setting>
+
+    <setting propertyKey="@Properties.CustomHexMinutes" title="@Strings.CustomHexMinutesTitle">
+        <settingConfig type="alphaNumeric" maxLength="7" />
+    </setting>
+
+    <setting propertyKey="@Properties.CustomHexSeconds" title="@Strings.CustomHexSecondsTitle">
+        <settingConfig type="alphaNumeric" maxLength="7" />
+    </setting>
+
+    <setting propertyKey="@Properties.TempUnit" title="@Strings.TempUnitTitle">
+        <settingConfig type="list">
+            <listEntry value="-1">@Strings.TempUnitAuto</listEntry>
+            <listEntry value="0">@Strings.TempUnitCelsius</listEntry>
+            <listEntry value="1">@Strings.TempUnitFahrenheit</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.BatteryMode" title="@Strings.BatteryModeTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.BatteryModePercent</listEntry>
+            <listEntry value="1">@Strings.BatteryModeDays</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.TiltSensitivity" title="@Strings.TiltSensitivityTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.TiltOff</listEntry>
+            <listEntry value="1">@Strings.TiltLow</listEntry>
+            <listEntry value="2">@Strings.TiltMedium</listEntry>
+            <listEntry value="3">@Strings.TiltHigh</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.EnableSiphonAnimation" title="@Strings.EnableSiphonAnimationTitle">
+        <settingConfig type="boolean" />
+    </setting>
+</settings>

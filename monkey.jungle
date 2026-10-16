@@ -1,0 +1,47 @@
+project.manifest = manifest.xml
+project.typecheck = strict
+base.sourcePath = source;test
+base.resourcePath = resources
+
+# 8-bit MIP faces blit the baked plate. 16-bit AMOLED faces draw the same chrome.
+base.excludeAnnotations = amoled
+round-360x360.excludeAnnotations = mip
+round-390x390.excludeAnnotations = mip
+round-416x416.excludeAnnotations = mip
+round-454x454.excludeAnnotations = mip
+
+# Each round size has its own artwork folder. The size folder is first so
+# dial bitmaps come from that canvas. The launcher folder is last so the
+# device icon size replaces the base 40px icon.
+fenix7s.resourcePath = resources-round-240x240;$(base.resourcePath);resources-launcher-40
+fenix7spro.resourcePath = resources-round-240x240;$(base.resourcePath);resources-launcher-40
+
+fenix7.resourcePath = resources-round-260x260;$(base.resourcePath);resources-launcher-40
+fenix7pro.resourcePath = resources-round-260x260;$(base.resourcePath);resources-launcher-40
+fr255.resourcePath = resources-round-260x260;$(base.resourcePath);resources-launcher-40
+fr955.resourcePath = resources-round-260x260;$(base.resourcePath);resources-launcher-40
+fenix8solar47mm.resourcePath = resources-round-260x260;$(base.resourcePath);resources-launcher-40
+
+fenix7x.resourcePath = resources-round-280x280;$(base.resourcePath);resources-launcher-40
+fenix7xpro.resourcePath = resources-round-280x280;$(base.resourcePath);resources-launcher-40
+enduro3.resourcePath = resources-round-280x280;$(base.resourcePath);resources-launcher-40
+enduro4.resourcePath = resources-round-280x280;$(base.resourcePath);resources-launcher-40
+fenix8solar51mm.resourcePath = resources-round-280x280;$(base.resourcePath);resources-launcher-40
+
+venu2s.resourcePath = resources-round-360x360;$(base.resourcePath);resources-launcher-61
+fr265s.resourcePath = resources-round-360x360;$(base.resourcePath);resources-launcher-60
+
+venu3s.resourcePath = resources-round-390x390;$(base.resourcePath);resources-launcher-70
+epix2pro42mm.resourcePath = resources-round-390x390;$(base.resourcePath);resources-launcher-60
+
+venu2.resourcePath = resources-round-416x416;$(base.resourcePath);resources-launcher-70
+fr265.resourcePath = resources-round-416x416;$(base.resourcePath);resources-launcher-60
+epix2.resourcePath = resources-round-416x416;$(base.resourcePath);resources-launcher-60
+epix2pro47mm.resourcePath = resources-round-416x416;$(base.resourcePath);resources-launcher-60
+fenix843mm.resourcePath = resources-round-416x416;$(base.resourcePath);resources-launcher-60
+
+fr965.resourcePath = resources-round-454x454;$(base.resourcePath);resources-launcher-65
+venu3.resourcePath = resources-round-454x454;$(base.resourcePath);resources-launcher-70
+epix2pro51mm.resourcePath = resources-round-454x454;$(base.resourcePath);resources-launcher-60
+fenix847mm.resourcePath = resources-round-454x454;$(base.resourcePath);resources-launcher-65
+fenix8pro47mm.resourcePath = resources-round-454x454;$(base.resourcePath);resources-launcher-65
