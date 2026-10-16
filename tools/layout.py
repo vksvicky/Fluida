@@ -1,27 +1,31 @@
-"""Dial anchors taken from the 240px Fluida mockup, then scaled to the screen."""
+"""Dial anchors taken directly from the 540px Fluida master mockup scaled to 240px."""
 
 from __future__ import annotations
 
-# Positions are pixels on the 240px mockup in tools/generate_fluida_240_dial.py.
+# Positions are pixels on the 240px canvas mapped from the 540px dial master.
 BASIS = 240
-HOUR_CX = 55
-MINUTE_CX = 185
-TUBE_W = 21
-TUBE_TOP = 52
-TUBE_BOTTOM = 184
-BRAND_Y = 28
-SECONDS_Y = 66
-SECONDS_R = 20
-DATE_MONTH_Y = 105
+HOUR_CX = 77
+MINUTE_CX = 172
+TUBE_W = 27
+TUBE_TOP = 42
+TUBE_BOTTOM = 166
+SPAN_TOP = 54
+SPAN_BOTTOM = 154
+BRAND_Y = 27
+SECONDS_CX = 125
+SECONDS_Y = 72
+SECONDS_R = 25
+SECONDS_ORBIT_R = 16
+DATE_MONTH_Y = 109
 DATE_DAY_Y = 120
-FLANK_LEFT = 88
-FLANK_RIGHT = 152
-METRIC_ROW = 148
-STEPS_Y = 178
-MENISCUS = 6
+FLANK_LEFT = 107
+FLANK_RIGHT = 143
+ROW1_Y = 141
+METRIC_ROW = 160
+STEPS_Y = 201
+MENISCUS = 5
 
 FLOOR = (0x12, 0x18, 0x20)
-# Brighter than the spec swatches so the columns match the mockup glass.
 PALETTES = {
     0: ((0x23, 0x91, 0xFF), (0x1E, 0xF0, 0xE1), (0x00, 0xEB, 0xFF)),
     1: ((0xE6, 0x19, 0x4B), (0xF5, 0xB0, 0x41), (0xF5, 0xB0, 0x41)),
@@ -47,31 +51,23 @@ def tube_box(size: int, side: str) -> tuple[int, int, int, int]:
 
 
 def bore_box(size: int, side: str) -> tuple[int, int, int, int]:
-    """Inner glass the live fluid sprite is clipped to."""
-    left, top, right, bottom = tube_box(size, side)
-    inset = max(1, at(size, 2))
-    return left + inset, top, right - inset, bottom
+    """Full 3D glass column bounds for the photorealistic fluid sprite."""
+    return tube_box(size, side)
+
+
+def scale_span(size: int) -> tuple[int, int]:
+    """Top (12h / 60m) and bottom (1h / 00m) calibrated scale Y coordinates."""
+    return at(size, SPAN_TOP), at(size, SPAN_BOTTOM)
 
 
 def sight_box(size: int, side: str) -> tuple[int, int, int, int]:
-    """Reservoir window under a tube. Same integer math as the watch face."""
+    """Reservoir bounds under a tube."""
     left, _top, right, bottom = tube_box(size, side)
-    width = right - left
-    mid = left + width // 2
-    res_w = width + at(size, 8)
-    res_top = bottom - at(size, 2)
-    sight_x = max(1, at(size, 4))
-    sight_y = max(1, at(size, 5))
-    return (
-        mid - res_w // 2 + sight_x,
-        res_top + sight_y,
-        mid + res_w // 2 - sight_x,
-        res_top + at(size, 25) - sight_y,
-    )
+    return left, bottom, right, bottom + at(size, 18)
 
 
 def well_center(size: int) -> tuple[int, int]:
-    return at(size, BASIS // 2), at(size, SECONDS_Y)
+    return at(size, SECONDS_CX), at(size, SECONDS_Y)
 
 
 def well_radius(size: int) -> int:

@@ -26,7 +26,7 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 
 from dial_plate import render_plate  # noqa: E402
 from fluid_art import HOUR, MINUTE, render_sprite  # noqa: E402
-from layout import MENISCUS, PALETTES, at, bore_box, pixel, tube_box, well_center, well_radius  # noqa: E402
+from layout import MENISCUS, PALETTES, at, bore_box, pixel, scale_span, tube_box, well_center, well_radius  # noqa: E402
 from test_ui.image_utils import make_3panel_diff  # noqa: E402
 from ui_report import generate_report  # noqa: E402
 
@@ -67,8 +67,8 @@ def get_current_branch() -> str:
 def render_face(size: int, palette: int) -> Image.Image:
     image = render_plate(size).convert("RGB")
     if palette == 0:
-        _paste_fluid(image, size, "hour", render_sprite(size, HOUR), 10.58 / 12)
-        _paste_fluid(image, size, "minute", render_sprite(size, MINUTE), 35 / 60)
+        _paste_fluid(image, size, "hour", render_sprite(size, HOUR), (10.58 - 1.0) / 11.0)
+        _paste_fluid(image, size, "minute", render_sprite(size, MINUTE), 35.0 / 60.0)
         return image
     hours, minutes, _seconds = PALETTES[palette]
     draw = ImageDraw.Draw(image)
@@ -81,11 +81,15 @@ def render_face(size: int, palette: int) -> Image.Image:
 
 
 def _paste_fluid(image: Image.Image, size: int, side: str, sprite: Image.Image, fill: float) -> None:
-    left, top, right, bottom = bore_box(size, side)
-    fluid = int(round(fill * (bottom - top)))
-    meniscus = max(3, at(size, MENISCUS))
-    cropped = sprite.crop((0, 0, right - left, meniscus + fluid))
-    image.paste(cropped.convert("RGB"), (left, bottom - fluid - meniscus), cropped)
+    left, _top, right, bottom = bore_box(size, side)
+    span_top, span_bottom = scale_span(size)
+    men_y = span_bottom - int(round(fill * (span_bottom - span_top)))
+    men_offset = max(3, at(size, MENISCUS))
+    draw_top = men_y - men_offset
+    clip_h = bottom - draw_top
+    if clip_h > 0:
+        cropped = sprite.crop((0, 0, right - left, clip_h))
+        image.paste(cropped.convert("RGB"), (left, draw_top), cropped)
 
 
 def annotate(image: Image.Image) -> Image.Image:
